@@ -18,14 +18,15 @@ namespace IPv4Validation
             _ip = ip;
             IsValid = true;
         }
+        
+        public void IsIPv6()
+        {
+            if (_ip[5] == ':') IsValid = false;
+        }
+        
         public void SplitToFields()
         {
             IpArray = _ip.Split('.');
-        }
-
-        public void IsIPv6()
-        {
-            if (_ip[3] == ':') IsValid = false;
         }
 
         public void IsLeadingZeroInField()
@@ -48,7 +49,7 @@ namespace IPv4Validation
             {
                 string field = IpArray[i];
                 x = Int16.Parse(field);
-                if (x >= 255 || x <= 1)
+                if (x > 255 || x < 1)
                 {
                     IsValid = false;
                     break;
