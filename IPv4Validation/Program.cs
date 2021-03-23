@@ -5,7 +5,7 @@ namespace IPv4Validation
     class Program
     {
         // https://edabit.com/challenge/BNKRr4N2oFZQfrTY3
-        // SOLVED
+        // Needs a tad bit more work
 
         static void Main(string[] args)
         {
