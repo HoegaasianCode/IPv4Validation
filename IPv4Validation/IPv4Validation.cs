@@ -28,10 +28,9 @@ namespace IPv4Validation
                 string field = IPv4Array[i];
                 string reversedField = IPv4ArrayReversed[i];
                 if (field.Length <= 1) continue;
-                bool firstDigitIsNotZero = field.Length == 2 && field[0] == '0';
-                bool lastDigitIsNotZero = reversedField[0] != '0' && field[1] == '0' && field[0] != '0';
-                bool lastDigitIsZero = reversedField[0] == '0' && field[0] == '0';
-                if (firstDigitIsNotZero || lastDigitIsZero || lastDigitIsNotZero) IsValid = false;
+                if (field.Length == 2 && field[0] == '0') IsValid = false;
+                if (reversedField[0] != '0' && field[1] == '0' && field[0] != '0' ||
+                    reversedField[0] == '0' && field[0] == '0') IsValid = false;
             }
         }
 
