@@ -15,7 +15,6 @@ namespace IPv4Validation
             IsValid = true;
         }
 
-
         public void IsIPv6()
         {
             if (_ip[4] == ':' && _ip.Length > 15) IsValid = false;
@@ -23,20 +22,16 @@ namespace IPv4Validation
 
         public void IsLeadingZeroInField()
         {
-            for(int i = 0; i < IPv4Array.Length; i++)
+            for (int i = 0; i < IPv4Array.Length; i++)
             {
                 string field = IPv4Array[i];
-                string reversedField = IPv4ArrayReversed[i];
-                if (field.Length <= 1) continue;
-                if (field.Length == 2 && field[0] == '0') IsValid = false;
-                if (reversedField[0] != '0' && field[1] == '0' && field[0] != '0' ||
-                    reversedField[0] == '0' && field[0] == '0') IsValid = false;
+                if (field.Length > 1 && field[0] == '0') IsValid = false;
             }
         }
 
         public void IsCorrectFieldRange()
         {
-            for(int i = 0; i < IPv4Array.Length; i++)
+            for (int i = 0; i < IPv4Array.Length; i++)
             {
                 string field = IPv4Array[i];
                 short t = Int16.Parse(field);
