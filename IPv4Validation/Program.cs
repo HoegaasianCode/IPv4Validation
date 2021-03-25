@@ -1,20 +1,21 @@
-﻿using System;
+using System;
 
 namespace IPv4Validation
 {
     class Program
     {
         // https://edabit.com/challenge/BNKRr4N2oFZQfrTY3
-        // Needs a tad bit more work
+        // SOLVED
 
         static void Main(string[] args)
         {
-            IPv4Validation ip = new ("201.137.43.53");
+            IPv4Validation ip = new ("0.155.43.0");
+            ip.SplitToOctats();
+            ip.CreateReversedIPArray();
             ip.IsIPv6();
-            ip.SplitToFields();
             ip.IsLeadingZeroInField();
             ip.IsCorrectFieldRange();
-            ip.IsLastIPDigitZero();
+            ip.IsLastFieldZero();
             Console.Write(ip.IsIPv4Valid());
         }
     }
